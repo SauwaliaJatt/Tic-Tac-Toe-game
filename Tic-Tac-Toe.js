@@ -34,31 +34,40 @@ function checkWin(){
     }
 
     if (get(0) !== '' && get(0) === get(1) && get(1) === get(2)) {
-        console.log(get(0) + " wins");
+        showWinLine("line-h1");
     } else if (get(3) !== '' && get(3) === get(4) && get(4) === get(5)) {
-        console.log(get(3) + " wins");
+        showWinLine("line-h2");
     } else if (get(6) !== '' && get(6) === get(7) && get(7) === get(8)) {
-        console.log(get(6) + " wins");
+        showWinLine("line-h3");
     } else if (get(0) !== '' && get(0) === get(3) && get(3) === get(6)) {
-        console.log(get(0) + " wins");
+        showWinLine("line-v1");
     } else if (get(1) !== '' && get(1) === get(4) && get(4) === get(7)) {
-        console.log(get(1) + " wins");
+        showWinLine("line-v2");
     } else if (get(2) !== '' && get(2) === get(5) && get(5) === get(8)) {
-        console.log(get(2) + " wins");
+        showWinLine("line-v3");
     } else if (get(0) !== '' && get(0) === get(4) && get(4) === get(8)) {
-        console.log(get(0) + " wins");
+        showWinLine("line-d1");
     } else if (get(2) !== '' && get(2) === get(4) && get(4) === get(6)) {
-        console.log(get(2) + " wins");
+        showWinLine("line-d2");
     } else if (![...boxes].some(box => box.innerText.trim() === '')) {
         console.log("Draw");
     }
 };
 
 
-function isEmpty(){
-    boxes.forEach((box) => {
-        if (box.textContent.trim() === '') {
-            return true;
-        }
-    });
-};
+function showWinLine(id) {
+    const line = document.getElementById(id);
+    line.style.opacity = "1";
+    if (id.startsWith("line-d")) {
+        line.style.width = "141.42%"; // For diagonals too
+    } else if(id.startsWith("line-v")){
+        line.style.height = "100%";
+    } else {
+        line.style.width = "100%";
+    }
+}
+
+
+function isEmpty() {
+    return [...boxes].some(box => box.textContent.trim() === '');
+}

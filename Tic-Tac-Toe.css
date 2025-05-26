@@ -49,8 +49,14 @@ main{
     text-align: center;
 }
 
+#start-sign>button:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+
 #game-grid{
     display: grid;
+    position: relative;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     place-items: center center;
@@ -69,7 +75,7 @@ main{
 }
 
 @media (max-width: 600px) {
-    #start-sigh{
+    #start-sign{
         width: 60vw;
     }
     #game-grid{
@@ -87,7 +93,7 @@ main{
     }
 }
 
-#game-grid > div{
+#game-grid > .box{
     width: 100%;
     height: 100%;
     color: white;
@@ -117,4 +123,81 @@ main{
 #game-grid>div:nth-child(5),
 #game-grid>div:nth-child(8) {
     border-right: 2px solid gray;
+}
+
+.box {
+    transition: background 0.3s ease;
+}
+
+
+/* lines */
+.line {
+    position: absolute;
+    pointer-events: none;
+    height: 5px;
+    width: 0;
+    background-color: transparent;
+    border: 3px solid white;
+    opacity: 0;
+    transition: width 1s ease, opacity 1s ease;
+}
+
+#line-h1 {
+    top: 15%;
+    left: 0;
+    width: 0;
+}
+
+#line-h2 {
+    top: 48.2%;
+    left: 0;
+    width: 0;
+}
+
+#line-h3 {
+    top: 81.8%;
+    left: 0;
+    width: 0;
+}
+
+#line-v1 {
+    top: 0;
+    left: 16%;
+    height: 100%;
+    width: 5px;
+    opacity: 0;
+}
+
+#line-v2 {
+    top: 0;
+    left: 49.2%;
+    height: 100%;
+    width: 5px;
+    opacity: 0;
+}
+
+#line-v3 {
+    top: 0;
+    left: 82.8%;
+    height: 100%;
+    width: 5px;
+    opacity: 0;
+}
+
+#line-d1 {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    transform: rotate(45deg);
+    transform-origin: top left;
+}
+
+#line-d2 {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 5px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
 }
