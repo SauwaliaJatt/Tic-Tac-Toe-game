@@ -69,9 +69,12 @@ function checkWin(){
     } else if (get(2) !== '' && get(2) === get(4) && get(4) === get(6)) {
         showWinLine("line-d2", get(2));
     } else if (![...boxes].some(box => box.innerText.trim() === '')) {
-        draw.style.width = "400px";
-        draw.style.opacity = "1";
-        draw.innerText = "Match DRAW";
+
+        setTimeout(() => {
+            draw.style.width = "400px";
+            draw.style.opacity = "1";
+            draw.innerText = "Match DRAW";
+        },500);
     }
 };
 
