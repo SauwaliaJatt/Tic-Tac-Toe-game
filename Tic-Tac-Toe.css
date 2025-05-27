@@ -93,6 +93,12 @@ button:hover {
         width: 60vw;
         height: 60vw;
     }
+
+    #draw{
+        font-size: 20px;
+        width: 0;
+        max-width: 300px;
+    }
 }
 @media (max-width: 400px) {
     #start-sign{
