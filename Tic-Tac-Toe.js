@@ -23,7 +23,6 @@ function resetBoard() {
     boxes.forEach(box => box.textContent = '');
 
     gameOver = false;
-    currentSign = 'x'
 
     draw.style.width = "0";
     draw.style.opacity = "0";
